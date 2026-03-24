@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings
 from pydantic import ConfigDict, field_validator
-from typing import Literal, Optional
+from typing import Literal, Optional, List
 
 class Settings(BaseSettings):
     model_config = ConfigDict(env_file=".env",env_parse_none_str=True)
@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     FRONTEND_URL: str = "http://localhost:3000"
     
     # CORS configuration
-    CORS_ORIGINS: list[str] | str = []
+    CORS_ORIGINS:List[str] = ["http://localhost:3000","https://frontend-smartchat.vercel.app"]
     CORS_ALLOW_CREDENTIALS: bool = True
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
