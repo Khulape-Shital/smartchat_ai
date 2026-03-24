@@ -1,0 +1,35 @@
+﻿fastapi
+google-genai
+uvicorn[standard]
+gunicorn
+sqlalchemy
+psycopg2-binary
+
+passlib[bcrypt]
+bcrypt
+
+python-multipart
+python-jose[cryptography]
+
+pydantic
+pydantic-settings
+
+redis
+pgvector
+alembic
+
+requests
+python-dotenv
+Pillow
+PyPDF2
+slowapi
+pydantic[email]
+email-validator==2.1.0.post1
+itsdangerous
+# FIXED versions (important)
+numpy<2
+torch==2.2.2+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
+langchain-text-splitters
+transformers==4.38.2
+sentence-transformers==2.6.1
