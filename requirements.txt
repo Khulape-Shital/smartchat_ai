@@ -5,9 +5,8 @@ gunicorn
 sqlalchemy
 psycopg2-binary
 
-passlib[bcrypt]
-bcrypt
-
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
 python-multipart
 python-jose[cryptography]
 
@@ -33,3 +32,4 @@ torch==2.2.2+cpu
 langchain-text-splitters
 transformers==4.38.2
 sentence-transformers==2.6.1
+ 

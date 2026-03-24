@@ -11,10 +11,7 @@ env/
 ENV/
 .venv/
 .env
-.env.*
-# Build / packaging
-build/
-dist/
+.env.* 
 *.egg-info/
 .eggs/
 
