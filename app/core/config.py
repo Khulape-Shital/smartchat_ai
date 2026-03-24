@@ -29,10 +29,11 @@ class Settings(BaseSettings):
     PASSWORD_RESET_EXPIRE_MINUTES: int = 10
     
     # Frontend URL for password reset links and CORS
-    FRONTEND_URL: str = "http://localhost:3000"
+    FRONTEND_URL: str 
+    # = "http://localhost:3000"
     
     # CORS configuration
-    CORS_ORIGINS:List[str] = ["http://localhost:3000","https://frontend-smartchat.vercel.app"]
+    CORS_ORIGINS = "https://frontend-smartchat.vercel.app"
     CORS_ALLOW_CREDENTIALS: bool = True
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
