@@ -4,7 +4,7 @@ APP_TITLE       = "SmartChat API"
 APP_VERSION     = "1.0.0"
 APP_DESCRIPTION = "SmartChat FastAPI Backend"
  
-GEMINI_MODEL    = "gemini-2.5-flash"
+GEMINI_MODEL    = "gemini-3.1-flash-lite-preview"
  
 MEDIA_DIR            = "media"
 CHAT_FILES_SUBDIR    = "chat_files"
@@ -56,7 +56,7 @@ SESSION_LIMIT       = 100
 EXPIRY_SECONDS      = 432000  # 120 hours
 
  
-CORS_ORIGINS        = ["http://localhost:3000", "http://localhost", "https://localhost","https://frontend-smartchat"]
+CORS_ORIGINS        = ["http://localhost:3000", "http://localhost","https://frontend-smartchat.vercel.app"]
 CORS_METHODS        = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 CORS_HEADERS        = ["Content-Type", "Authorization"]
 
