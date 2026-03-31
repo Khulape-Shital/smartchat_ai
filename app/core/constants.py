@@ -56,7 +56,7 @@ SESSION_LIMIT       = 100
 EXPIRY_SECONDS      = 432000  # 120 hours
 
  
-CORS_ORIGINS        = ["http://localhost:3000", "http://localhost", "https://localhost"]
+CORS_ORIGINS        = ["http://localhost:3000", "http://localhost", "https://localhost","https://frontend-smartchat"]
 CORS_METHODS        = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 CORS_HEADERS        = ["Content-Type", "Authorization"]
 

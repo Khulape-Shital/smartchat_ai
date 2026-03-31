@@ -5,6 +5,15 @@ from uuid import UUID
 from app.core.constants import DEFAULT_CHAT_TITLE
 from app.core.time_utils import get_unix_timestamp
 
+class SelectedModelRequest(BaseModel):
+     model: str
+     class Config:
+        orm_mode = True
+
+class AIModelResponse(BaseModel):
+    model:str
+    class Config:
+        orm_mode = True
 class ChatSessionCreate(BaseModel):
     title: Optional[str] = DEFAULT_CHAT_TITLE
 

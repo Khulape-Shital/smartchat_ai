@@ -7,6 +7,12 @@ from app.db.session import Base
 from pgvector.sqlalchemy import Vector
 
 
+class ai_model(Base):
+    __tablename__ = "ai_models"   # ✅ FIX HERE
+
+    id = Column(UUID, primary_key=True)
+    model = Column(String)
+
 class ChatSession(Base):
     __tablename__ = "chat_sessions"
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)

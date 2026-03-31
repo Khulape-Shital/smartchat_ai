@@ -17,10 +17,10 @@ from io import BytesIO
  
 from app.db.session import get_db, SessionLocal
 from app.models.user import User
-from app.models.chat import ChatSession, Message, DocumentChunk
+from app.models.chat import ChatSession, Message, DocumentChunk, ai_model
 from app.schemas.chat import (
     ChatSessionCreate, ChatSessionResponse, ChatSessionUpdate,
-    MessageResponse, MessageFeedback, MessageCreate
+    MessageResponse, MessageFeedback, MessageCreate,SelectedModelRequest, AIModelResponse
 )
 from app.core.security import get_current_user
 from app.core.config import settings
@@ -154,6 +154,46 @@ async def create_chat(
     db.refresh(session)
 
     return session
+
+ 
+
+@router.get("/chats/get",response_model=List[AIModelResponse])
+def get_moldes(
+     db:Session= Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    sessions =  db.query(ai_model).all()
+
+    return sessions
+       
+
+        
+ 
+# @router.post("/chats/select_model", response_model=AIModelResponse)
+# def select_model(
+#     model: SelectedModelRequest,
+#     get_current_user: User= Depends(get_current_user),
+#     db: Session = Depends(get_db)
+# ):
+#     session  = db.query(ai_model).filter(
+#         ai_model.user_id ==get_current_user.id,
+#     ).first()
+#     if session :
+#         session.selected_model = model.model
+#     else:
+#         data = ai_model(
+#             user_id= get_current_user.id,
+#             select_model =model.model
+#         )
+#         db.add(data)
+#     db.commit()
+#     db.refresh()
+#     print(session.selected_model)
+    
+    return {
+        "user_id": session.user_id,
+        "model": session.selected_model
+    }
 
 @router.put("/chats/{chat_id}", response_model=ChatSessionResponse)
 async def update_chat(
